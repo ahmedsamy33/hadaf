@@ -1,0 +1,23 @@
+.foot {
+
+
+  mat-toolbar-row {
+    justify-content: center;
+    font-size: 18px;
+
+    span {
+      text-transform: capitalize;
+
+      a {
+        text-decoration: none;
+        color: #FFF;
+
+        &:hover {
+          color: #b6d26d;
+        }
+      }
+    }
+  }
+
+
+}

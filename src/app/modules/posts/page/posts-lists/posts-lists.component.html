@@ -1,0 +1,36 @@
+<div class="example-container mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ID. </mat-header-cell>
+      <mat-cell *matCellDef="let row" data-label="id">
+        <p>{{row.id}}</p>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
+      <mat-cell *matCellDef="let row" data-label="title">
+        <p> {{row.title}}</p>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="body">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Body </mat-header-cell>
+      <mat-cell *matCellDef="let row" data-label="body">
+        <p>{{row.body}}</p>
+      </mat-cell>
+    </ng-container>
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="['post-detials', row.id]"></mat-row>
+
+  </table>
+
+  <mat-paginator [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+</div>

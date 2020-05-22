@@ -1,0 +1,72 @@
+<div class="container" novalidate>
+  <form class="form" [formGroup]="myForm" novalidate>
+    <!-- id input  -->
+
+    <mat-form-field appearance="outline" class="form-element">
+      <mat-label>ID</mat-label>
+      <input matInput name="id" formControlName="id" readonly>
+      <!-- error message -->
+      <mat-error>
+        <app-control-messages [control]="f['id']"></app-control-messages>
+      </mat-error>
+      <!-- hint message -->
+      <mat-hint *ngIf="toggleBtn">To be able to edit first click on the Update button </mat-hint>
+    </mat-form-field>
+
+    <!-- title input  -->
+    <mat-form-field appearance="outline" class="form-element">
+      <mat-label>Title</mat-label>
+      <input matInput type="text" name="title" formControlName="title" placeholder="Title" [readonly]='toggleBtn'>
+      <!-- error message -->
+      <mat-error>
+        <app-control-messages [control]="f['title']"></app-control-messages>
+      </mat-error>
+      <!-- hint message -->
+      <mat-hint *ngIf="toggleBtn">To be able to edit first click on the Update button </mat-hint>
+    </mat-form-field>
+
+    <!-- text area body  -->
+    <mat-form-field appearance="outline" class="form-element">
+      <mat-label>Enter Body</mat-label>
+      <textarea matInput name="body" formControlName="body" matTextareaAutosize matAutosizeMinRows="8"
+        matAutosizeMaxRows="5" [readonly]='toggleBtn'></textarea>
+      <!-- error message -->
+      <mat-error>
+        <app-control-messages [control]="f['body']"></app-control-messages>
+      </mat-error>
+      <!-- hint message -->
+      <mat-hint *ngIf="toggleBtn">To be able to edit first click on the Update button </mat-hint>
+    </mat-form-field>
+
+
+    <section>
+      <!--  update and delete btn -->
+
+      <div class="button-row" *ngIf="toggleBtn">
+        <button class="button" mat-raised-button (click)="toggle('update')" color="primary" [disabled]="!myForm.valid">
+          <mat-icon>update</mat-icon>
+          Update
+        </button>
+        <button class="button" mat-raised-button color="warn" (click)="openDialogToDelete()" [disabled]="!myForm.valid">
+          <mat-icon>delete</mat-icon>
+          Delete
+        </button>
+
+      </div>
+      <!-- confirm update and cancel update btn -->
+      <div class="button-row" *ngIf="!toggleBtn">
+        <button class="button" mat-raised-button (click)="updatePostByID()" color="primary" [disabled]="!myForm.valid">
+          <mat-icon>check</mat-icon>
+          OK
+        </button>
+        <button class="button" (click)="toggle('close')" mat-raised-button color="warn" [disabled]="!myForm.valid">
+          <mat-icon>close</mat-icon>
+          Cancel
+        </button>
+      </div>
+    </section>
+
+
+
+  </form>
+</div>

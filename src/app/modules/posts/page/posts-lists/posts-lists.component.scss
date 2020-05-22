@@ -1,0 +1,67 @@
+mat-row {
+  cursor: pointer;
+}
+
+mat-row:hover {
+  background: rgba(0, 0, 0, .04);
+}
+
+@media screen and (max-width: 960px) {
+  table {
+    margin: 0 10px;
+  }
+
+  .mat-table {
+    border: 0;
+    vertical-align: middle
+  }
+
+  .mat-table caption {
+    font-size: 1em;
+  }
+
+  .mat-table .mat-row {
+    border-bottom: 5px solid #ddd;
+    display: block;
+    padding: 0 24px;
+
+  }
+
+  .mat-row::after {
+    display: none;
+  }
+
+  .mat-table .mat-cell {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 4%;
+    padding: 0;
+
+    p {
+      text-align: start;
+      padding-left: 50px;
+    }
+  }
+
+  .mat-table .mat-cell:before {
+
+    content: attr(data-label);
+    float: left;
+    text-transform: uppercase;
+    font-weight: normal;
+
+    font-size: .85em;
+  }
+
+  .mat-table .mat-cell:last-child {
+    border-bottom: 0;
+  }
+
+  .mat-table .mat-cell:first-child {
+    margin-top: 4%;
+  }
+
+
+}
